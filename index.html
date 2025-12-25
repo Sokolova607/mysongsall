@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя музыкальная библиотека</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+        }
+        .songs-container {
+            display: grid;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .song-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+        .song-card:hover {
+            transform: translateY(-2px);
+        }
+        .song-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .song-title::before {
+            content: "🎵";
+            font-size: 1.2em;
+        }
+        audio {
+            width: 100%;
+            margin: 10px 0;
+        }
+        .lyrics-toggle {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .lyrics-toggle:hover {
+            background: #2980b9;
+        }
+        .lyrics {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: #f1f1f1;
+            border-radius: 8px;
+            white-space: pre-line;
+            font-family: monospace;
+            line-height: 1.6;
+        }
+        @media (max-width: 600px) {
+            .song-card {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Моя музыкальная библиотека</h1>
+    </header>
+
+    <div class="songs-container">
+        <!-- Песня 1 -->
+        <div class="song-card">
+            <h2 class="song-title">Christmas</h2>
+            <audio controls>
+                <source src="song1.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудио.
+            </audio>
+            <button class="lyrics-toggle" onclick="toggleLyrics('lyrics1')">Показать текст</button>
+            <div id="lyrics1" class="lyrics">
+Verse 1:
+Snow is falling, lights are bright,
+Whispers of joy in the winter night.
+Children laugh, hearts are warm,
+In this season, love takes form.
+
+Chorus:
+Christmas, Christmas, time to believe,
+In the magic only you can see.
+Hold your loved ones, let your spirit fly,
+Under stars that light the sky.
+            </div>
+        </div>
+
+        <!-- Песня 2 -->
+        <div class="song-card">
+            <h2 class="song-title">Present Perfect</h2>
+            <audio controls>
+                <source src="song2.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудио.
+            </audio>
+            <button class="lyrics-toggle" onclick="toggleLyrics('lyrics2')">Показать текст</button>
+            <div id="lyrics2" class="lyrics">
+Verse 1:
+I’ve walked these streets, I’ve seen the rain,
+Memories linger, sweet and plain.
+Every moment, every scar,
+Built the person you are.
+
+Chorus:
+Present perfect, never past,
+Every echo built to last.
+Not just what was, but what’s still here,
+In every whisper, every tear.
+            </div>
+        </div>
+
+        <!-- Песня 3 -->
+        <div class="song-card">
+            <h2 class="song-title">School</h2>
+            <audio controls>
+                <source src="song3.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудио.
+            </audio>
+            <button class="lyrics-toggle" onclick="toggleLyrics('lyrics3')">Показать текст</button>
+            <div id="lyrics3" class="lyrics">
+Verse 1:
+Bell rings loud, backpack on my back,
+Hallways echo, no turning back.
+Chalk dust flying, pens in hand,
+Learning dreams across the land.
+
+Chorus:
+School, school, where stories start,
+Where we break apart, then mend our heart.
+From math to art, from fear to grace,
+This is the place we find our space.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleLyrics(id) {
+            const lyrics = document.getElementById(id);
+            const button = lyrics.previousElementSibling;
+
+            if (lyrics.style.display === "block") {
+                lyrics.style.display = "none";
+                button.textContent = "Показать текст";
+            } else {
+                lyrics.style.display = "block";
+                button.textContent = "Скрыть текст";
+            }
+        }
+    </script>
+</body>
+</html>
